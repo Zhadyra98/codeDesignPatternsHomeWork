@@ -2,8 +2,7 @@ package tests.mail.page_object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import tests.mail.business_object.Letter;
+import patterns.decorator.Letter;
 
 public class InboxPage extends AbstractPage{
     private static final By WRITE_MAIL_TAP_LOCATOR=By.xpath("//span[contains(text(),'Написать письмо')]");

@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import patterns.factory_method.ChromeDriverCreator;
+import patterns.factory_method.WebDriverCreator;
+import patterns.singleton.WebDriverSingleton;
 import tests.mail.page_object.DraftsPage;
 import tests.mail.page_object.InboxPage;
 import tests.mail.page_object.MainPage;
@@ -14,17 +17,18 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class MailTest {
-    private WebDriver driver;
+    WebDriver driver;
+    WebDriverCreator creator = new ChromeDriverCreator();
     @BeforeClass(description = "Start browser")
     private void initBrowser() {
-        driver = new ChromeDriver();
+        driver = creator.factoryMethod();
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
     @AfterClass(description = "close browser" )
     public void kill(){
-        //driver.close();
+        driver.close();
     }
 
     @Test(description = "Login To the System ", priority = 0)

@@ -1,9 +1,10 @@
-package tests.mail.business_object;
+package patterns.decorator;
 
 public class Letter {
     private String toWhom;
     private String title;
     private String bodyText;
+
     public Letter(String toWhom, String title, String bodyText){
         this.toWhom=toWhom;
         this.title=title;
@@ -20,5 +21,9 @@ public class Letter {
 
     public String getBodyText() {
         return bodyText;
+    }
+
+    public void setBodyText(String bodyText) {
+        this.bodyText = bodyText;
     }
 }
