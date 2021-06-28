@@ -23,7 +23,7 @@ public class DraftsPage extends AbstractPage{
         boolean isPresentMessage = false;
         List<WebElement> draftMessages = driver.findElements(DRAFT_MESSAGES_LIST_LOCATOR);
         for(WebElement it : draftMessages){
-            if(it.getText().contains(new InboxPage(driver).firstLetter.getTitle())){
+            if(it.getText().contains(new InboxPage(driver).getFirstLetter().getTitle())){
                 isPresentMessage = true;
                 neededDraftMessage = it;
                 break;
